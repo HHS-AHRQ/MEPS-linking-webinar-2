@@ -86,10 +86,18 @@ title "CLNK Office-based visits only";
 /* Merge conditions file with the conditions-event link file (CLNK) */
 
 
+
+
 title "Example of one condition treated in different events";
+proc print data = mh_clnk;
+	where CONDIDX = "2320109103009";
+run;
+
 
 title "Example of one event treating multiple Mental Health conditions";
-
+proc print data = mh_clnk;
+	where EVNTIDX = "2320051101205101";
+run;
 
 
 /* De-duplicate by event ID ('EVNTIDX'), since someone can have multiple visits 
@@ -103,7 +111,7 @@ title "Example of one event treating multiple Mental Health conditions";
 
 
 /* QC */
-
+title "ob_mental_health";
 
 
 
@@ -132,6 +140,7 @@ run;
 
 
 /* QC */
+title "ob_mh_fyc";
 
 
 
